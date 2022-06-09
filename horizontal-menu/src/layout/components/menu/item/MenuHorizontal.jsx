@@ -19,7 +19,6 @@ export default function MenuHorizontal(props) {
 
     // Redux
     const products = useSelector(state => state.ecommerce.products)
-    const customise = useSelector(state => state.customise)
     const dispatch = useDispatch()
 
     // Location
@@ -171,7 +170,7 @@ export default function MenuHorizontal(props) {
     return (
         <Menu
             mode="horizontal"
-            theme={customise.theme == "light" ? "light" : "dark"}
+            theme={"light" }
         >
             {menuItem}
         </Menu>

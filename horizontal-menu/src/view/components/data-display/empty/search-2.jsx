@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monoBlue } from "react-syntax-highlighter/dist/esm/styles/hljs";
@@ -19,9 +18,6 @@ export default function EmptySearch2() {
     setTimeout(() => setCodeClass(!codeClass), 100);
     setCheckedCode(!checkedCode);
   }
-
-  // Theme
-  const theme = useSelector(state => state.customise.theme)
 
   return (
     <Card className="hp-border-color-black-40">
@@ -44,7 +40,7 @@ export default function EmptySearch2() {
         <Col span={24}>
           <Empty
             className="hp-my-8"
-            image={theme === "dark" ? emptyImageDark : emptyImage}
+            image={emptyImage}
             imageStyle={{
               height: 155,
             }}

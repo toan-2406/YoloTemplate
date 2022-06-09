@@ -26,19 +26,8 @@ const { Sider } = Layout;
 export default function Sidebar(props) {
     const { visible, setVisible } = props;
 
-    // Redux
-    const customise = useSelector(state => state.customise)
-
     // Collapsed
     const [collapsed, setCollapsed] = useState(false);
-
-    useEffect(() => {
-        if (customise.sidebarCollapsed) {
-            setCollapsed(true);
-        } else {
-            setCollapsed(false);
-        }
-    }, [customise])
 
     // Location
     const location = useLocation();
@@ -47,8 +36,12 @@ export default function Sidebar(props) {
     // Mobile Sidebar
     const onClose = () => {
         setVisible(false);
+        setCollapsed(true);
     };
-
+    const onOpen = () => {
+        setVisible(true);
+        setCollapsed(false);
+    }
     // Menu
     function toggle() {
         setCollapsed(!collapsed);
@@ -75,8 +68,7 @@ export default function Sidebar(props) {
                     {collapsed === false ? <MenuLogo onClose={onClose} /> : ""}
                 </Col>
 
-                {
-                    customise.sidebarCollapseButton && (
+              
                         <Col className="hp-pr-0">
                             <Button
                                 icon={trigger}
@@ -84,14 +76,11 @@ export default function Sidebar(props) {
                                 className="hp-float-right hp-text-color-dark-0"
                             ></Button>
                         </Col>
-                    )
-                }
-
                 {collapsed !== false && (
                     <Col className="hp-mt-8">
                         <Link
                             to="/"
-                            onClick={onClose}
+                            onClick={onOpen}
                         >
                             <img className="hp-logo" src={logoSmall} alt="logo" />
                         </Link>

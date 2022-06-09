@@ -1,8 +1,7 @@
 import { Suspense, useEffect } from "react";
 
 // Redux
-import { useDispatch, useSelector } from "react-redux";
-import { theme } from "../redux/customise/customiseActions";
+import { useDispatch } from "react-redux";
 
 // Router
 import {
@@ -17,7 +16,6 @@ import { Routes } from "./routes";
 
 // Layouts
 import VerticalLayout from "../layout/VerticalLayout";
-import HorizontalLayout from "../layout/HorizontalLayout";
 import FullLayout from "../layout/FullLayout";
 
 // Components
@@ -25,63 +23,22 @@ import Analytics from "../view/main/dashboard/analytics";
 import Error404 from "../view/pages/errors/404";
 
 export default function Router() {
-    // Redux
-    const customise = useSelector(state => state.customise)
     const dispatch = useDispatch()
 
     // Location
     const location = useHistory()
 
-    // Dark Mode
-    let themeLocal
+    // ltr direction
 
     useEffect(() => {
-        if (localStorage) {
-            themeLocal = localStorage.getItem("theme")
-        }
-
-        if (themeLocal === "light" || themeLocal === "dark") {
-            document.querySelector("body").classList.add(themeLocal)
-            dispatch(theme(themeLocal))
-        } else {
-            document.querySelector("body").classList.add(customise.theme)
-            dispatch(theme(customise.theme))
-        }
-    }, [])
-
-    // RTL
-    useEffect(() => {
-        if (customise.direction == "ltr") {
             document.querySelector("html").setAttribute("dir", "ltr");
-        } else if (customise.direction == "rtl") {
-            document.querySelector("html").setAttribute("dir", "rtl");
-        }
-    }, [])
-
-    // Url Check
-    useEffect(() => {
-        // Theme
-        if (location.location.search == "?theme=dark") {
-            localStorage.setItem("theme", "dark")
-            themeLocal = "dark"
-        } else if (location.location.search == "?theme=light") {
-            localStorage.setItem("theme", "light")
-            themeLocal = "light"
-        }
-
-        // Direction
-        if (location.location.search == "?direction=ltr") {
-            document.querySelector("html").setAttribute("dir", "ltr");
-        } else if (location.location.search == "?direction=rtl") {
-            document.querySelector("html").setAttribute("dir", "rtl");
-        }
     }, [])
 
     // Default Layout
-    const DefaultLayout = customise.layout; // FullLayout or VerticalLayout
+    const DefaultLayout ="VerticalLayout"; // FullLayout or VerticalLayout
 
     // All of the available layouts
-    const Layouts = { VerticalLayout, HorizontalLayout, FullLayout };
+    const Layouts = { VerticalLayout, FullLayout };
 
     // Return Filtered Array of Routes & Paths
     const LayoutRoutesAndPaths = (layout) => {
@@ -94,6 +51,8 @@ export default function Router() {
                 LayoutPaths.push(route.path)
             ));
         }
+        console.log(LayoutRoutes)
+        console.log(LayoutPaths)
 
         return { LayoutRoutes, LayoutPaths };
     };
@@ -104,13 +63,7 @@ export default function Router() {
             const { LayoutRoutes, LayoutPaths } = LayoutRoutesAndPaths(layout);
 
             let LayoutTag;
-            if (DefaultLayout == "HorizontalLayout") {
-                if (layout == "VerticalLayout") {
-                    LayoutTag = Layouts["HorizontalLayout"];
-                } else {
-                    LayoutTag = Layouts[layout];
-                }
-            } else {
+            if (DefaultLayout == "VerticalLayout") {
                 LayoutTag = Layouts[layout];
             }
 
@@ -152,15 +105,11 @@ export default function Router() {
                     path={'/'}
                     render={() => {
                         return (
-                            DefaultLayout == "HorizontalLayout" ? (
-                                <Layouts.HorizontalLayout>
-                                    <Analytics />
-                                </Layouts.HorizontalLayout>
-                            ) : (
+                            DefaultLayout == "VerticalLayout" && (
                                 <Layouts.VerticalLayout>
                                     <Analytics />
                                 </Layouts.VerticalLayout>
-                            )
+                            ) 
                         )
                     }}
                 />

@@ -1,8 +1,6 @@
 import React, { useState, createElement, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 
-import { useSelector } from 'react-redux';
-
 import {
     Layout,
     Button,

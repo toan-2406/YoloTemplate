@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { useSelector } from "react-redux";
-
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monoBlue } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { standAlone } from "./code.js";
@@ -18,9 +16,6 @@ export default function BadgeStandAlone() {
     setTimeout(() => setCodeClass(!codeClass), 100);
     setCheckedCode(!checkedCode);
   }
-
-  // Redux
-  const customise = useSelector(state => state.customise)
 
   return (
     <Card className="hp-border-color-black-40">
@@ -78,7 +73,7 @@ export default function BadgeStandAlone() {
               <Badge
                 className="site-badge-count-109"
                 count={show ? 109 : 0}
-                style={customise.theme == "dark" ? { backgroundColor: "#474747" } : { backgroundColor: "#B2BEC3" }}
+                style={{ backgroundColor: "#B2BEC3" }}
               />
             </Col>
           </Row>

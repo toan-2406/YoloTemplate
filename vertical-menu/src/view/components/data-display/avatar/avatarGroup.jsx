@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { useSelector } from "react-redux";
 
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monoBlue } from "react-syntax-highlighter/dist/esm/styles/hljs";
@@ -11,8 +10,6 @@ import { RiReactjsLine, RiCodeSSlashLine } from "react-icons/ri";
 import { User } from "react-iconly";
 
 export default function AvatarGroup() {
-  // Redux
-  const theme = useSelector(state => state.customise.theme)
 
   const [checkedCode, setCheckedCode] = useState(false);
   const [codeClass, setCodeClass] = useState(false);
@@ -63,7 +60,7 @@ export default function AvatarGroup() {
 
           <Avatar.Group
             maxCount={2}
-            maxStyle={{ color: "#FF0022", backgroundColor: theme == "light" ? "#FFE7EA" : "#2E1618" }}
+            maxStyle={{ color: "#FF0022", backgroundColor: "#FFE7EA" }}
           >
             <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" className="ant-avatar-transparent" />
 
@@ -89,7 +86,7 @@ export default function AvatarGroup() {
           <Avatar.Group
             maxCount={2}
             size="large"
-            maxStyle={{ color: "#FF0022", backgroundColor: theme == "light" ? "#FFE7EA" : "#2E1618" }}
+            maxStyle={{ color: "#FF0022", backgroundColor: "#FFE7EA"  }}
           >
             <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" className="ant-avatar-transparent" />
 

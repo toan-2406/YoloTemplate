@@ -1,15 +1,11 @@
 import React from 'react'
 
-import { useSelector } from 'react-redux';
-
 import { Button, Col, Menu, Row, Dropdown } from 'antd'
 import { RiMenuFill } from "react-icons/ri";
 
 import MenuLogo from '../../../layout/components/menu/logo'
 
 export default function LandingHeader() {
-    // Redux
-    const customise = useSelector(state => state.customise)
 
     const loginButton =
         <Button
@@ -56,7 +52,7 @@ export default function LandingHeader() {
                             overlay={
                                 <Menu
                                     mode="vertical"
-                                    theme={customise.theme == "light" ? "light" : "dark"}
+                                    theme={"light"}
                                     className="hp-bg-dark-90"
                                 >
                                     {menuItems}

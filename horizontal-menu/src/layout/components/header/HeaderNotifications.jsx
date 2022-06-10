@@ -1,11 +1,14 @@
 import React from "react";
 
+import { useSelector } from "react-redux";
+
 import { Button, Badge, Row, Col, Dropdown, Divider, Avatar } from "antd";
 import { Notification, TickSquare, CloseSquare, Danger } from "react-iconly";
 
 import avatarImg from "../../../assets/images/memoji/memoji-5.png";
 
 export default function HeaderNotifications() {
+  const direction = useSelector(state => state.customise.direction)
 
   const notificationMenu = (
     <div className="hp-border-radius hp-border-1 hp-border-color-black-40 hp-bg-black-0 hp-bg-dark-100 hp-border-color-dark-80 hp-pt-24 hp-pb-18 hp-px-18 hp-mt-18" style={{ width: 288 }}>
@@ -134,7 +137,7 @@ export default function HeaderNotifications() {
         icon={
           <Dropdown overlay={notificationMenu} placement="bottomRight">
             <div className="hp-position-relative">
-              <div className="hp-position-absolute" style={{ right: -5, top: -5 }}>
+              <div className="hp-position-absolute" style={direction == "rtl" ? { left: -5, top: -5 } : { right: -5, top: -5 }}>
                 <Badge
                   dot
                   status="processing"

@@ -21,7 +21,7 @@ export default function EmptySheets() {
   }
 
   // Theme
-  const theme = useSelector(state => state.customise.theme)
+
 
   return (
     <Card className="hp-border-color-black-40">

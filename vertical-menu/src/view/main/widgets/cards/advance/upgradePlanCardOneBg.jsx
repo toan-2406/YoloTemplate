@@ -8,14 +8,13 @@ import cardImg from "../../../../../assets/images/dasboard/analytics-payment-bg.
 import cardImgDark from "../../../../../assets/images/dasboard/analytics-payment-bg-dark.png";
 
 export default function UpgradePlanCardOneBg() {
-  // Redux
-  const theme = useSelector(state => state.customise.theme)
+
 
   return (
     <Card
       className="hp-border-color-black-40 hp-card-1 hp-upgradePlanCardOne hp-upgradePlanCardOne-bg"
       style={{
-        backgroundImage: `url(${theme == "dark" ? cardImgDark : cardImg})`,
+        backgroundImage: `url(${ cardImg})`,
         backgroundSize: "cover",
         backgroundPosition: "right",
       }}

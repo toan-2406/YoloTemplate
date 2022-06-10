@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { useSelector } from "react-redux";
 
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monoBlue } from "react-syntax-highlighter/dist/esm/styles/hljs";
@@ -23,6 +24,9 @@ export default function TopNavigationMenu() {
   const handleClick = (e) => {
     setCurrent(e.key);
   };
+
+  // Redux
+  const customise = useSelector(state => state.customise)
 
   return (
     <Card className="hp-border-color-black-40">
@@ -49,7 +53,7 @@ export default function TopNavigationMenu() {
             onClick={handleClick}
             selectedKeys={[current]}
             mode="horizontal"
-            theme={ "light" }
+            theme={customise.theme == "light" ? "light" : "dark"}
           >
             <Menu.Item key="mail" icon={<RiMailLine className="remix-icon" />}>
               Navigation One

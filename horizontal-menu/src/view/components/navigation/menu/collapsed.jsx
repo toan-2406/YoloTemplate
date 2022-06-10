@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { useSelector } from "react-redux";
+
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monoBlue } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { collapsedCode } from "./code.js";
@@ -28,6 +30,8 @@ export default function CollapsedMenu() {
     setCollapsed(!collapsed);
   };
 
+  // Redux
+  const customise = useSelector(state => state.customise)
 
   return (
     <Card className="hp-border-color-black-40">
@@ -65,7 +69,7 @@ export default function CollapsedMenu() {
             defaultOpenKeys={["sub1"]}
             mode="inline"
             inlineCollapsed={collapsed}
-            theme={"light"}
+            theme={customise.theme == "light" ? "light" : "dark"}
           >
             <Menu.Item key="1" icon={<RiMailLine className="remix-icon" />}>
               Option 1

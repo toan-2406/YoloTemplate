@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from "react";
 
+import { useSelector } from "react-redux";
+
 import { Row, Col, Menu } from "antd";
 
 import Breadcrumbs from "../../../../layout/components/content/breadcrumbs";
@@ -40,6 +42,8 @@ import FixedHeaderScrollbarPageTable from "./fixedHeaderScrollbarPage";
 import DynamicSettingsTable from "./dynamicSettings";
 
 export default function Table() {
+  // Redux
+  const customise = useSelector(state => state.customise)
 
   // Menu
   const menuData = [
@@ -286,7 +290,7 @@ export default function Table() {
       <Col span={5} className="hp-table-menu">
         <Menu
           mode="inline"
-          theme={ "light"}
+          theme={customise.theme == "light" ? "light" : "dark"}
         >
           {
             menuData.map((title, index) => (

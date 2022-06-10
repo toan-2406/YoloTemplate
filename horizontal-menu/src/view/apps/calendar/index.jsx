@@ -38,6 +38,7 @@ export default function Calender() {
   // Redux
   const dispatch = useDispatch();
   const store = useSelector((state) => state.calendar);
+  const customise = useSelector(state => state.customise)
 
   const showDrawer = () => {
     setIsDrawerVisible(true);
@@ -133,7 +134,7 @@ export default function Calender() {
           <Row>
             <Sider
               className="hp-border-right-1 hp-border-color-dark-80 hp-py-24 hp-mr-24"
-              theme={"light"}
+              theme={customise.theme == "light" ? "light" : "dark"}
               width={256}
             >
               <Sidebar

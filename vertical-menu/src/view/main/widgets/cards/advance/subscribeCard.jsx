@@ -1,14 +1,11 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
-
 import { Card, Row, Col, Button, Input, Form } from "antd";
 
 import illustration from "../../../../../assets/images/illustrations/newsletter-1.svg";
 import illustrationDark from "../../../../../assets/images/illustrations/newsletter-1-dark.svg";
 
 export default function SubscribeCard() {
-  const theme = useSelector(state => state.customise.theme)
 
   const onFinish = (values) => {
     console.log("Success:", values);
@@ -22,7 +19,7 @@ export default function SubscribeCard() {
     <Card className="hp-border-color-black-40 hp-card-6">
       <Row>
         <Col className="hp-text-center" span={24}>
-          <img src={theme == "light" ? illustration : illustrationDark} alt="Illustrations" className="hp-mb-36" />
+          <img src={ illustration } alt="Illustrations" className="hp-mb-36" />
 
           <Form
             layout="vertical"

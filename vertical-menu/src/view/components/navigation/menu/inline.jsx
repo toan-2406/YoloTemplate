@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { useSelector } from "react-redux";
 
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monoBlue } from "react-syntax-highlighter/dist/esm/styles/hljs";
@@ -19,9 +18,6 @@ export default function InlineMenu() {
     setTimeout(() => setCodeClass(!codeClass), 100);
     setCheckedCode(!checkedCode);
   }
-
-   // Redux
-  const customise = useSelector(state => state.customise)
 
   return (
     <Card className="hp-border-color-black-40">
@@ -48,7 +44,7 @@ export default function InlineMenu() {
             defaultSelectedKeys={["1"]}
             defaultOpenKeys={["sub1"]}
             mode="inline"
-            theme={customise.theme == "light" ? "light" : "dark"}
+            theme={"light"}
           >
             <SubMenu
               key="sub1"

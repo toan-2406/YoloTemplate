@@ -35,7 +35,7 @@ export default function Router() {
   }, []);
   // Login
   useEffect(() => {
-    funcLogin("ADMN", "123456");
+    funcLogin("ADMIN", "123456");
   }, []);
   // Default Layout
   const DefaultLayout = "VerticalLayout"; // FullLayout or VerticalLayout

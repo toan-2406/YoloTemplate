@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Suspense, useEffect, useState } from "react";
 // Redux
 import { useDispatch } from "react-redux";
@@ -15,7 +17,6 @@ import FullLayout from "../layout/FullLayout";
 // Components
 import Analytics from "../view/main/dashboard/analytics";
 import Error404 from "../view/pages/errors/404";
-import Login from "../view/pages/login";
 
 export default function Router() {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ export default function Router() {
   }, []);
   // Login
   useEffect(() => {
-    funcLogin("ADMIN", "123456");
+    funcLogin("ADMN", "123456");
   }, []);
   // Default Layout
   const DefaultLayout = "VerticalLayout"; // FullLayout or VerticalLayout

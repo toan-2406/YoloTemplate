@@ -1,18 +1,22 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import { Row, Col, Card, Button } from "antd";
 import { Download } from "react-iconly";
 
 import cardImg from "../../../../../assets/images/dasboard/analytics-download-bg.png";
+import cardImgDark from "../../../../../assets/images/dasboard/analytics-download-bg-dark.png";
 import cardVectorImg from "../../../../../assets/images/dasboard/analytics-download-vector.svg";
 
 export default function DownloadCard() {
+  // Redux
+  const theme = useSelector(state => state.customise.theme)
 
   return (
     <Card
       className="hp-border-none hp-card-2 hp-px-12 hp-py-16 hp-upgradePlanCardOne"
       style={{
-        backgroundImage: `url(${cardImg})`,
+        backgroundImage: `url(${theme == "dark" ? cardImgDark : cardImg})`,
         backgroundSize: "cover",
         backgroundPosition: "right",
       }}

@@ -12,6 +12,8 @@ import cardBg1 from "../../../../assets/images/dasboard/nft-card-bg-1.png";
 import cardCircleBg from "../../../../assets/images/dasboard/nft-card-circle-bg.svg";
 
 export default function BidCardNFT() {
+  // Theme
+  const theme = useSelector(state => state.customise.theme)
 
   // Wish Check
   const [wishCheck, setWishCheck] = useState(false)

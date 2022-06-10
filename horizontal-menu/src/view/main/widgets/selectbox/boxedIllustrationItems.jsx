@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useSelector } from "react-redux";
+
 import { Row, Col } from "antd";
 
 import image1 from "../../../../assets/images/illustrations/ab-testing.svg";
@@ -7,9 +9,15 @@ import image2 from "../../../../assets/images/illustrations/welcome.svg";
 import image3 from "../../../../assets/images/illustrations/share.svg";
 import image4 from "../../../../assets/images/illustrations/bring-solutions.svg";
 
+import imageDark1 from "../../../../assets/images/illustrations/ab-testing-dark.svg";
+import imageDark2 from "../../../../assets/images/illustrations/welcome-dark.svg";
+import imageDark3 from "../../../../assets/images/illustrations/share-dark.svg";
+import imageDark4 from "../../../../assets/images/illustrations/bring-solutions-dark.svg";
+
 import SelectBoxItem from "./selectBoxItem";
 
 export default function SelectBoxBoxedIllustrationItems() {
+  const theme = useSelector(state => state.customise.theme)
 
   return (
     <>
@@ -35,7 +43,7 @@ export default function SelectBoxBoxedIllustrationItems() {
                 id="select-box-boxed-illustration-item-1-1"
                 name="select-box-item"
                 type="boxed"
-                image={ image1}
+                image={theme === "dark" ? imageDark1 : image1}
                 imageHeight={200}
                 title={<span className="h5">A/B Testing</span>}
                 subTitle="Pages"
@@ -48,7 +56,7 @@ export default function SelectBoxBoxedIllustrationItems() {
                 id="select-box-boxed-illustration-item-1-2"
                 name="select-box-item"
                 type="boxed"
-                image={ image2}
+                image={theme === "dark" ? imageDark2 : image2}
                 imageHeight={200}
                 title={<span className="h5">User Interview</span>}
                 subTitle="Research"
@@ -61,7 +69,7 @@ export default function SelectBoxBoxedIllustrationItems() {
                 id="select-box-boxed-illustration-item-1-3"
                 name="select-box-item"
                 type="boxed"
-                image={ image3}
+                image={theme === "dark" ? imageDark3 : image3}
                 imageHeight={200}
                 title={<span className="h5">Ads Performance</span>}
                 subTitle="Pages"
@@ -74,7 +82,7 @@ export default function SelectBoxBoxedIllustrationItems() {
                 id="select-box-boxed-illustration-item-1-4"
                 name="select-box-item"
                 type="boxed"
-                image={image4}
+                image={theme === "dark" ? imageDark4 : image4}
                 imageHeight={200}
                 title={<span className="h5">Project Management</span>}
                 subTitle="Pages"
@@ -103,7 +111,7 @@ export default function SelectBoxBoxedIllustrationItems() {
                 id="select-box-boxed-illustration-item-2-1"
                 name="select-box-item"
                 type="boxed"
-                image={image1}
+                image={theme === "dark" ? imageDark1 : image1}
                 imageHeight={200}
                 title={<span className="h5">A/B Testing</span>}
                 badge={<span className="hp-text-color-primary-1 hp-text-color-dark-primary-2">New Services</span>}
@@ -115,7 +123,7 @@ export default function SelectBoxBoxedIllustrationItems() {
                 id="select-box-boxed-illustration-item-2-2"
                 name="select-box-item"
                 type="boxed"
-                image={ image2}
+                image={theme === "dark" ? imageDark2 : image2}
                 imageHeight={200}
                 title={<span className="h5">User Interview</span>}
                 badge={<span className="hp-text-color-primary-1 hp-text-color-dark-primary-2">New Services</span>}
@@ -127,7 +135,7 @@ export default function SelectBoxBoxedIllustrationItems() {
                 id="select-box-boxed-illustration-item-2-3"
                 name="select-box-item"
                 type="boxed"
-                image={image3}
+                image={theme === "dark" ? imageDark3 : image3}
                 imageHeight={200}
                 title={<span className="h5">Ads Performance</span>}
                 badge={<span className="hp-text-color-primary-1 hp-text-color-dark-primary-2">New Services</span>}
@@ -139,7 +147,7 @@ export default function SelectBoxBoxedIllustrationItems() {
                 id="select-box-boxed-illustration-item-2-4"
                 name="select-box-item"
                 type="boxed"
-                image={ image4}
+                image={theme === "dark" ? imageDark4 : image4}
                 imageHeight={200}
                 title={<span className="h5">Project Management</span>}
                 badge={<span className="hp-text-color-primary-1 hp-text-color-dark-primary-2">New Services</span>}
@@ -167,7 +175,7 @@ export default function SelectBoxBoxedIllustrationItems() {
                 id="select-box-boxed-illustration-item-3-1"
                 name="select-box-item"
                 type="boxed"
-                image={ image1}
+                image={theme === "dark" ? imageDark1 : image1}
                 imageHeight={200}
                 title={<span className="h5">A/B Testing</span>}
               />
@@ -178,7 +186,7 @@ export default function SelectBoxBoxedIllustrationItems() {
                 id="select-box-boxed-illustration-item-3-2"
                 name="select-box-item"
                 type="boxed"
-                image={ image2}
+                image={theme === "dark" ? imageDark2 : image2}
                 imageHeight={200}
                 title={<span className="h5">User Interview</span>}
               />
@@ -189,7 +197,7 @@ export default function SelectBoxBoxedIllustrationItems() {
                 id="select-box-boxed-illustration-item-3-3"
                 name="select-box-item"
                 type="boxed"
-                image={ image3}
+                image={theme === "dark" ? imageDark3 : image3}
                 imageHeight={200}
                 title={<span className="h5">Ads Performance</span>}
               />
@@ -200,7 +208,7 @@ export default function SelectBoxBoxedIllustrationItems() {
                 id="select-box-boxed-illustration-item-3-4"
                 name="select-box-item"
                 type="boxed"
-                image={ image4}
+                image={theme === "dark" ? imageDark4 : image4}
                 imageHeight={200}
                 title={<span className="h5">Project Management</span>}
               />

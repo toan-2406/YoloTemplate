@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { useSelector } from "react-redux";
+
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monoBlue } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { vertical } from "./code.js";
@@ -18,6 +20,8 @@ export default function VerticalMenu() {
     setCheckedCode(!checkedCode);
   }
 
+  // Redux
+  const customise = useSelector(state => state.customise)
 
   return (
     <Card className="hp-border-color-black-40">
@@ -42,7 +46,7 @@ export default function VerticalMenu() {
         <Col span={24}>
           <Menu
             mode="vertical"
-            theme={"light"}
+            theme={customise.theme == "light" ? "light" : "dark"}
           >
             <SubMenu
               key="sub1"

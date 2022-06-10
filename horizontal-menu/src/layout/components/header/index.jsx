@@ -20,6 +20,9 @@ export default function MenuHeader(props) {
   const [searchHeader, setSearchHeader] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
 
+  // Redux
+  const customise = useSelector(state => state.customise)
+
   // Focus
   const inputFocusRef = useRef(null);
   const inputFocusProp = {
@@ -121,11 +124,21 @@ export default function MenuHeader(props) {
   return (
     <Header>
       <Row justify="center" className="hp-w-100">
-
+        {
+          customise.contentWidth == "full" && (
             <Col span={24}>
               {headerChildren()}
             </Col>
+          )
+        }
 
+        {
+          customise.contentWidth == "boxed" && (
+            <Col xxl={20} xl={22} span={24}>
+              {headerChildren()}
+            </Col>
+          )
+        }
       </Row>
     </Header>
   );

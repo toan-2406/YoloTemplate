@@ -34,13 +34,15 @@ export default function Detail({ selectedUser }) {
     dispatch(deleteUser(userId))
   }
 
+  // Redux
+  const customise = useSelector(state => state.customise)
 
   return (
     <Card className="hp-contact-detail hp-mb-32">
       <Layout className="hp-flex-wrap">
         <Sider
           className="hp-p-24 hp-border-right-1 hp-border-color-dark-80"
-          theme={"light"}
+          theme={customise.theme == "light" ? "light" : "dark"}
           width={254}
         >
           <Row className="hp-h-100">

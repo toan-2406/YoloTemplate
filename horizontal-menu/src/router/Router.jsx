@@ -1,125 +1,175 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect } from "react";
+
 // Redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { theme } from "../redux/customise/customiseActions";
+
 // Router
-import { BrowserRouter, Redirect, Route, Switch, useHistory } from "react-router-dom";
-//axios Client
-import { funcLogin } from "../axiosClient/login";
+import {
+    BrowserRouter,
+    Route,
+    Switch,
+    useHistory,
+} from "react-router-dom";
+
 // Routes
 import { Routes } from "./routes";
 
 // Layouts
 import VerticalLayout from "../layout/VerticalLayout";
+import HorizontalLayout from "../layout/HorizontalLayout";
 import FullLayout from "../layout/FullLayout";
 
 // Components
 import Analytics from "../view/main/dashboard/analytics";
 import Error404 from "../view/pages/errors/404";
-import Login from "../view/pages/login";
 
 export default function Router() {
-  const dispatch = useDispatch();
+    // Redux
+    const customise = useSelector(state => state.customise)
+    const dispatch = useDispatch()
 
-  //localStorage Login
-  const userInfo = JSON.parse(localStorage.getItem("UserName"));
+    // Location
+    const location = useHistory()
 
-  console.log(userInfo);
+    // Dark Mode
+    let themeLocal
 
-  // Location
-  const location = useHistory();
+    useEffect(() => {
+        if (localStorage) {
+            themeLocal = localStorage.getItem("theme")
+        }
 
-  // ltr direction
+        if (themeLocal === "light" || themeLocal === "dark") {
+            document.querySelector("body").classList.add(themeLocal)
+            dispatch(theme(themeLocal))
+        } else {
+            document.querySelector("body").classList.add(customise.theme)
+            dispatch(theme(customise.theme))
+        }
+    }, [])
 
-  useEffect(() => {
-    document.querySelector("html").setAttribute("dir", "ltr");
-  }, []);
-  // Login
-  useEffect(() => {
-    funcLogin("ADMIN", "123456");
-  }, []);
-  // Default Layout
-  const DefaultLayout = "VerticalLayout"; // FullLayout or VerticalLayout
-  // All of the available layouts
-  const Layouts = { VerticalLayout, FullLayout };
-  // Return Filtered Array of Routes & Paths
-  const LayoutRoutesAndPaths = (layout) => {
-    const LayoutRoutes = [];
-    const LayoutPaths = [];
-    if (Routes) {
-      // Checks if Route layout or Default layout matches current layout
-      Routes.filter(
-        (route) =>
-          route.layout === layout &&
-          (LayoutRoutes.push(route), LayoutPaths.push(route.path))
-      );
-    }
+    // RTL
+    useEffect(() => {
+        if (customise.direction == "ltr") {
+            document.querySelector("html").setAttribute("dir", "ltr");
+        } else if (customise.direction == "rtl") {
+            document.querySelector("html").setAttribute("dir", "rtl");
+        }
+    }, [])
 
-    return { LayoutRoutes, LayoutPaths };
-  };
+    // Url Check
+    useEffect(() => {
+        // Theme
+        if (location.location.search == "?theme=dark") {
+            localStorage.setItem("theme", "dark")
+            themeLocal = "dark"
+        } else if (location.location.search == "?theme=light") {
+            localStorage.setItem("theme", "light")
+            themeLocal = "light"
+        }
 
-  // Return Route to Render
-  const ResolveRoutes = () => {
-    return Object.keys(Layouts).map((layout, index) => {
-      const { LayoutRoutes, LayoutPaths } = LayoutRoutesAndPaths(layout);
-      let LayoutTag;
-      if (DefaultLayout == "VerticalLayout") {
-        LayoutTag = Layouts[layout];
-      }
-      return (
-        <Route path={LayoutPaths} key={index}>
-          <LayoutTag>
+        // Direction
+        if (location.location.search == "?direction=ltr") {
+            document.querySelector("html").setAttribute("dir", "ltr");
+        } else if (location.location.search == "?direction=rtl") {
+            document.querySelector("html").setAttribute("dir", "rtl");
+        }
+    }, [])
+
+    // Default Layout
+    const DefaultLayout = customise.layout; // FullLayout or VerticalLayout
+
+    // All of the available layouts
+    const Layouts = { VerticalLayout, HorizontalLayout, FullLayout };
+
+    // Return Filtered Array of Routes & Paths
+    const LayoutRoutesAndPaths = (layout) => {
+        const LayoutRoutes = [];
+        const LayoutPaths = [];
+        if (Routes) {
+            // Checks if Route layout or Default layout matches current layout
+            Routes.filter(route => (route.layout === layout) && (
+                LayoutRoutes.push(route),
+                LayoutPaths.push(route.path)
+            ));
+        }
+
+        return { LayoutRoutes, LayoutPaths };
+    };
+
+    // Return Route to Render
+    const ResolveRoutes = () => {
+        return Object.keys(Layouts).map((layout, index) => {
+            const { LayoutRoutes, LayoutPaths } = LayoutRoutesAndPaths(layout);
+
+            let LayoutTag;
+            if (DefaultLayout == "HorizontalLayout") {
+                if (layout == "VerticalLayout") {
+                    LayoutTag = Layouts["HorizontalLayout"];
+                } else {
+                    LayoutTag = Layouts[layout];
+                }
+            } else {
+                LayoutTag = Layouts[layout];
+            }
+
+            return (
+                <Route path={LayoutPaths} key={index}>
+                    <LayoutTag>
+                        <Switch>
+                            {LayoutRoutes.map((route) => {
+                                return (
+                                    <Route
+                                        key={route.path}
+                                        path={route.path}
+                                        exact={route.exact === true}
+                                        render={(props) => {
+                                            return (
+                                                <Suspense fallback={null}>
+                                                    <route.component {...props} />
+                                                </Suspense>
+                                            );
+                                        }}
+                                    />
+                                );
+                            })}
+                        </Switch>
+                    </LayoutTag>
+                </Route>
+            );
+        });
+    };
+
+    return (
+        <BrowserRouter>
             <Switch>
-              {LayoutRoutes.map((route) => {
-                return (
-                  <Route
-                    key={route.path}
-                    path={route.path}
-                    exact={route.exact === true}
-                    render={(props) => {
-                      return (
-                        <Suspense fallback={null}>
-                          <route.component {...props} />
-                        </Suspense>
-                      );
+                {ResolveRoutes()}
+
+                {/* Home Page */}
+                <Route
+                    exact
+                    path={'/'}
+                    render={() => {
+                        return (
+                            DefaultLayout == "HorizontalLayout" ? (
+                                <Layouts.HorizontalLayout>
+                                    <Analytics />
+                                </Layouts.HorizontalLayout>
+                            ) : (
+                                <Layouts.VerticalLayout>
+                                    <Analytics />
+                                </Layouts.VerticalLayout>
+                            )
+                        )
                     }}
-                  />
-                );
-              })}
+                />
+
+                {/* NotFound */}
+                <Route path='*'>
+                    <Error404 />
+                </Route>
             </Switch>
-          </LayoutTag>
-        </Route>
-      );
-    });
-  };
-
-  return (
-    <BrowserRouter>
-      <Switch>
-        {ResolveRoutes()}
-        {/* Home Page */}
-        {userInfo === "ADMIN" ? (
-          <Route
-            exact
-            path={"/"}
-            render={() => {
-              return (
-                DefaultLayout == "VerticalLayout" && (
-                  <Layouts.VerticalLayout>
-                    <Analytics />
-                  </Layouts.VerticalLayout>
-                )
-              );
-            }}
-          />
-        ) : (
-            <Redirect to={"/login"} />
-        )}
-
-        {/* NotFound */}
-        <Route path="*">
-          <Error404 />
-        </Route>
-      </Switch>
-    </BrowserRouter>
-  );
-}
+        </BrowserRouter>
+    );
+};

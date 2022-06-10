@@ -1,33 +1,27 @@
 import React, { useState } from "react";
 
-import { useSelector } from "react-redux";
 
 import { Row, Col, Avatar, Card, Button } from "antd";
 import { RiHeartFill } from "react-icons/ri";
 
 import cardAvatar1 from "../../../../assets/images/memoji/memoji-3.png";
 import eth from "../../../../assets/images/dasboard/eth-logo.svg";
-import ethDark from "../../../../assets/images/dasboard/eth-dark-logo.svg";
 import cardBg1 from "../../../../assets/images/dasboard/nft-card-bg-1.png";
-import cardCircleBg from "../../../../assets/images/dasboard/nft-card-circle-bg.svg";
-
 export default function BidCardNFT() {
-  // Theme
-  const theme = useSelector(state => state.customise.theme)
 
   // Wish Check
   const [wishCheck, setWishCheck] = useState(false)
 
   return (
     <Card className="hp-border-radius hp-overflow-hidden hp-card-3 hp-border-1 hp-border-color-black-40 hp-border-color-dark-80">
-      {
+      {/* {
         theme === "dark" && (
           <div
             className="hp-position-absolute-top-left hp-w-100 hp-h-100 hp-nft-dashboard-bid-card-dark-image"
             style={{ backgroundImage: "url(" + cardCircleBg + ")", backgroundSize: "cover", backgroundPosition: "center right" }}
           ></div>
         )
-      }
+      } */}
 
       <div
         className="hp-position-relative hp-border-radius hp-nft-dashboard-bid-card-image"
@@ -84,16 +78,7 @@ export default function BidCardNFT() {
 
               <div className="hp-d-flex-center hp-mb-4">
                 <span className="h5 hp-text-color-primary-1 hp-text-color-dark-primary-2 hp-font-weight-500 hp-mr-6">0.00050 ETH</span>
-
-                {
-                  theme === "dark" ? (
-                    <div className="hp-bg-black-0 hp-border-radius-full hp-d-flex">
-                      <img src={ethDark} alt="eth" style={{ transform: "scale(1.1)" }} />
-                    </div>
-                  ) : (
-                    <img src={eth} alt="eth" />
-                  )
-                }
+                  <img src={eth} alt="eth" />
               </div>
 
               <span className="hp-d-block hp-badge-text hp-text-color-black-60">$1,732.23</span>

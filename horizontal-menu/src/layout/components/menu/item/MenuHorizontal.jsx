@@ -171,7 +171,7 @@ export default function MenuHorizontal(props) {
     return (
         <Menu
             mode="horizontal"
-            theme={customise.theme == "light" ? "light" : "dark"}
+            theme={ "light"}
         >
             {menuItem}
         </Menu>

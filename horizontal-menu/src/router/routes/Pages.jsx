@@ -525,6 +525,11 @@ const PagesRoutes = [
     path: "/pages/profile/connect-with-social",
     component: lazy(() => import("../../view/pages/profile")),
     layout: "VerticalLayout",
+  },
+  {
+    path: "/login",
+    component: lazy(() => import("../../view/pages/authentication/login")),
+    layout: "FullLayout"
   }
 ];
 

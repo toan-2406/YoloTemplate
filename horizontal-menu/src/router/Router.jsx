@@ -1,12 +1,8 @@
 import { Suspense, useEffect } from "react";
-
-// Redux
-import { useDispatch, useSelector } from "react-redux";
-import { theme } from "../redux/customise/customiseActions";
-
 // Router
 import {
     BrowserRouter,
+    Redirect,
     Route,
     Switch,
     useHistory,
@@ -16,7 +12,6 @@ import {
 import { Routes } from "./routes";
 
 // Layouts
-import VerticalLayout from "../layout/VerticalLayout";
 import HorizontalLayout from "../layout/HorizontalLayout";
 import FullLayout from "../layout/FullLayout";
 
@@ -24,64 +19,27 @@ import FullLayout from "../layout/FullLayout";
 import Analytics from "../view/main/dashboard/analytics";
 import Error404 from "../view/pages/errors/404";
 
-export default function Router() {
-    // Redux
-    const customise = useSelector(state => state.customise)
-    const dispatch = useDispatch()
+//axios
+import {funcLogin} from "../axiosClient/login";
 
+export default function Router() {
     // Location
     const location = useHistory()
+      //localStorage Login
+  const userInfo = JSON.parse(localStorage.getItem("UserName"));
 
-    // Dark Mode
-    let themeLocal
-
-    useEffect(() => {
-        if (localStorage) {
-            themeLocal = localStorage.getItem("theme")
-        }
-
-        if (themeLocal === "light" || themeLocal === "dark") {
-            document.querySelector("body").classList.add(themeLocal)
-            dispatch(theme(themeLocal))
-        } else {
-            document.querySelector("body").classList.add(customise.theme)
-            dispatch(theme(customise.theme))
-        }
-    }, [])
-
-    // RTL
-    useEffect(() => {
-        if (customise.direction == "ltr") {
-            document.querySelector("html").setAttribute("dir", "ltr");
-        } else if (customise.direction == "rtl") {
-            document.querySelector("html").setAttribute("dir", "rtl");
-        }
-    }, [])
 
     // Url Check
     useEffect(() => {
-        // Theme
-        if (location.location.search == "?theme=dark") {
-            localStorage.setItem("theme", "dark")
-            themeLocal = "dark"
-        } else if (location.location.search == "?theme=light") {
-            localStorage.setItem("theme", "light")
-            themeLocal = "light"
-        }
-
-        // Direction
-        if (location.location.search == "?direction=ltr") {
-            document.querySelector("html").setAttribute("dir", "ltr");
-        } else if (location.location.search == "?direction=rtl") {
-            document.querySelector("html").setAttribute("dir", "rtl");
-        }
+        funcLogin("ADMIN", "123456");
+        document.querySelector("html").setAttribute("dir", "ltr");
     }, [])
 
     // Default Layout
-    const DefaultLayout = customise.layout; // FullLayout or VerticalLayout
+    const DefaultLayout = "FullLayout"; // FullLayout or VerticalLayout
 
     // All of the available layouts
-    const Layouts = { VerticalLayout, HorizontalLayout, FullLayout };
+    const Layouts = {  HorizontalLayout, FullLayout };
 
     // Return Filtered Array of Routes & Paths
     const LayoutRoutesAndPaths = (layout) => {
@@ -105,11 +63,7 @@ export default function Router() {
 
             let LayoutTag;
             if (DefaultLayout == "HorizontalLayout") {
-                if (layout == "VerticalLayout") {
-                    LayoutTag = Layouts["HorizontalLayout"];
-                } else {
                     LayoutTag = Layouts[layout];
-                }
             } else {
                 LayoutTag = Layouts[layout];
             }
@@ -147,23 +101,25 @@ export default function Router() {
                 {ResolveRoutes()}
 
                 {/* Home Page */}
-                <Route
+                {
+                    userInfo === "ADMIN" ? (
+                        <Route
                     exact
                     path={'/'}
                     render={() => {
                         return (
-                            DefaultLayout == "HorizontalLayout" ? (
+                            DefaultLayout == "FullLayout" && (
                                 <Layouts.HorizontalLayout>
                                     <Analytics />
                                 </Layouts.HorizontalLayout>
-                            ) : (
-                                <Layouts.VerticalLayout>
-                                    <Analytics />
-                                </Layouts.VerticalLayout>
-                            )
+                            ) 
                         )
                     }}
                 />
+                    ) : (
+                        <Redirect to="/login" />
+                    )
+                }
 
                 {/* NotFound */}
                 <Route path='*'>

@@ -17,7 +17,7 @@ export default function MenuItem(props) {
 
     // Redux
     const products = useSelector(state => state.ecommerce.products)
-    const customise = useSelector(state => state.customise)
+
     const dispatch = useDispatch()
 
     // Location
@@ -141,7 +141,7 @@ export default function MenuItem(props) {
                     : null,
                 splitLocation[splitLocation.length - 2],
             ]}
-            theme={customise.theme == "light" ? "light" : "dark"}
+            theme={ "light" }
         >
             {menuItem}
         </Menu>

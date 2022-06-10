@@ -1,21 +1,14 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
-
 import { Card, Row, Col, Button } from "antd";
 
 import cardImg from "../../../../../assets/images/dasboard/analytics-payment-bg.svg";
-import cardImgDark from "../../../../../assets/images/dasboard/analytics-payment-bg-dark.png";
-
 export default function UpgradePlanCardOneBg() {
-  // Redux
-  const theme = useSelector(state => state.customise.theme)
-
   return (
     <Card
       className="hp-border-color-black-40 hp-card-1 hp-upgradePlanCardOne hp-upgradePlanCardOne-bg"
       style={{
-        backgroundImage: `url(${theme == "dark" ? cardImgDark : cardImg})`,
+        backgroundImage: `url(${ cardImg})`,
         backgroundSize: "cover",
         backgroundPosition: "right",
       }}

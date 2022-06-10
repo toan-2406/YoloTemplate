@@ -1,22 +1,20 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
+
 
 import { Card, Row, Col, Button } from "antd";
 
 import cardBg from "../../../../assets/images/dasboard/ecommerce-card-bg.png";
-import cardBgDark from "../../../../assets/images/dasboard/ecommerce-card-bg-dark.png";
 import cardImg from "../../../../assets/images/dasboard/ecommerce-card-img.png";
 
 export default function CheckDetailCard() {
   // Redux
-  const theme = useSelector(state => state.customise.theme)
 
   return (
     <Card
       className="hp-border-color-black-40 hp-ecommerce-detail-card hp-card-6 hp-overflow-hidden"
       style={{
-        backgroundImage: `url(${theme == "light" ? cardBg : cardBgDark})`,
+        backgroundImage: `url(${ cardBg })`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

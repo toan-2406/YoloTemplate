@@ -528,7 +528,7 @@ const PagesRoutes = [
   },
   {
     path: "/login",
-    component: lazy(() => import("../../view/pages/login")),
+    component: lazy(() => import("../../view/pages/authentication/login")),
     layout: "FullLayout",
   },
 ];

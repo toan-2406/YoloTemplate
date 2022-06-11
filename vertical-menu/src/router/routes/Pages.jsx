@@ -322,7 +322,7 @@ const PagesRoutes = [
   {
     path: "/main/layouts/page-layouts/horizontal-layout",
     component: lazy(() => import("../../view/main/layouts/page-layouts/horizontal")),
-    layout: "HorizontalLayout",
+    layout: "VerticalLayout",
   },
   {
     path: "/main/layouts/page-layouts/full-layout",

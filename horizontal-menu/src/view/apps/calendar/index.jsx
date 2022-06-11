@@ -134,7 +134,7 @@ export default function Calender() {
           <Row>
             <Sider
               className="hp-border-right-1 hp-border-color-dark-80 hp-py-24 hp-mr-24"
-              theme={customise.theme == "light" ? "light" : "dark"}
+              theme={"light"}
               width={256}
             >
               <Sidebar

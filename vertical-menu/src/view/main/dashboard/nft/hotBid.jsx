@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
 
-import { useSelector } from "react-redux";
 
 import Swiper from "react-id-swiper";
 import { Row, Col } from "antd";
@@ -16,8 +15,6 @@ import slideImage4 from "../../../../assets/images/dasboard/nft-slide-image-4.pn
 import HotBidItem from "./hotBidItem";
 
 export default function HotBidNFT() {
-  // Slide Check (For Direction Changed)
-  const direction = useSelector(state => state.customise.direction)
 
   const [swiperCheck, setSwiperCheck] = useState(true)
 
@@ -27,7 +24,7 @@ export default function HotBidNFT() {
     setTimeout(() => {
       setSwiperCheck(true)
     }, 100);
-  }, [direction])
+  }, [])
 
   // Slide Data
   const collectiblesData = [
@@ -276,7 +273,7 @@ export default function HotBidNFT() {
                 style={{ minWidth: 40, height: 40 }}
                 onClick={() => goPrev(tabMenu)}
               >
-                <ChevronLeft set="light" className="hp-text-color-dark-primary-1" style={direction === "rtl" ? { transform: "rotate(-180deg)" } : {}} />
+                <ChevronLeft set="light" className="hp-text-color-dark-primary-1"  />
               </div>
             </Col>
 
@@ -286,7 +283,7 @@ export default function HotBidNFT() {
                 style={{ minWidth: 40, height: 40 }}
                 onClick={() => goNext(tabMenu)}
               >
-                <ChevronRight set="light" className="hp-text-color-dark-primary-1" style={direction === "rtl" ? { transform: "rotate(180deg)" } : {}} />
+                <ChevronRight set="light" className="hp-text-color-dark-primary-1"  />
               </div>
             </Col>
           </Row>

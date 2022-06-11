@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monoBlue } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { redBadge } from "./code.js";
@@ -18,8 +16,6 @@ export default function BadgeRed() {
   }
 
   // RTL
-  const direction = useSelector(state => state.customise.direction)
-
   return (
     <Card className="hp-border-color-black-40">
       <Row>
@@ -54,7 +50,7 @@ export default function BadgeRed() {
             </Col>
 
             <Col>
-              <Badge dot offset={direction == "rtl" ? [-4, 3] : [4, 3]}>
+              <Badge dot offset={ [4, 3]}>
                 <a href="#">Link something</a>
               </Badge>
             </Col>

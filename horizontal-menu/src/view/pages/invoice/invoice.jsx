@@ -1,6 +1,5 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
 
 import {
   Row,
@@ -11,11 +10,9 @@ import {
 } from "antd";
 
 import logo from "../../../assets/images/logo/logo.svg";
-import logoDark from "../../../assets/images/logo/logo-dark.svg";
 
 export default function InvoiceCard() {
   // Redux
-  const customise = useSelector(state => state.customise)
 
   // Column Data
   const columns = [
@@ -76,13 +73,9 @@ export default function InvoiceCard() {
     <Card id="invoice" className="hp-mb-32 hp-invoice-card">
       <Row justify="space-between">
         <Col xl={12} xs={24} sm={12}>
-          {
-            customise.theme == "light" ? (
+        
               <img className="hp-logo hp-mb-16" src={logo} alt="logo" />
-            ) : (
-              <img className="hp-logo hp-mb-16" src={logoDark} alt="logo" />
-            )
-          }
+            
         </Col>
 
         <Col>

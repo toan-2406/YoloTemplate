@@ -18,15 +18,6 @@ export default function BidCardNFT() {
 
   return (
     <Card className="hp-border-radius hp-overflow-hidden hp-card-3 hp-border-1 hp-border-color-black-40 hp-border-color-dark-80">
-      {
-        theme === "dark" && (
-          <div
-            className="hp-position-absolute-top-left hp-w-100 hp-h-100 hp-nft-dashboard-bid-card-dark-image"
-            style={{ backgroundImage: "url(" + cardCircleBg + ")", backgroundSize: "cover", backgroundPosition: "center right" }}
-          ></div>
-        )
-      }
-
       <div
         className="hp-position-relative hp-border-radius hp-nft-dashboard-bid-card-image"
         style={{ backgroundImage: "url(" + cardBg1 + ")", backgroundSize: "cover", backgroundPosition: "center", height: 168 }}
@@ -83,15 +74,9 @@ export default function BidCardNFT() {
               <div className="hp-d-flex-center hp-mb-4">
                 <span className="h5 hp-text-color-primary-1 hp-text-color-dark-primary-2 hp-font-weight-500 hp-mr-6">0.00050 ETH</span>
 
-                {
-                  theme === "dark" ? (
-                    <div className="hp-bg-black-0 hp-border-radius-full hp-d-flex">
-                      <img src={ethDark} alt="eth" style={{ transform: "scale(1.1)" }} />
-                    </div>
-                  ) : (
+             
                     <img src={eth} alt="eth" />
-                  )
-                }
+                
               </div>
 
               <span className="hp-d-block hp-badge-text hp-text-color-black-60">$1,732.23</span>

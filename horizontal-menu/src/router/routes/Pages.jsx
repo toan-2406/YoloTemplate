@@ -5,319 +5,319 @@ const PagesRoutes = [
   {
     path: "/components/components-page",
     component: lazy(() => import("../../view/components/components-page")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/avatar",
     component: lazy(() => import("../../view/components/data-display/avatar")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/badge",
     component: lazy(() => import("../../view/components/data-display/badge")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/calendar",
     component: lazy(() =>
       import("../../view/components/data-display/calendar")
     ),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/card",
     component: lazy(() => import("../../view/components/data-display/card")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/collapse",
     component: lazy(() =>
       import("../../view/components/data-display/collapse")
     ),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/comment",
     component: lazy(() => import("../../view/components/data-display/comment")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/empty",
     component: lazy(() => import("../../view/components/data-display/empty")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/list",
     component: lazy(() => import("../../view/components/data-display/list")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/popover",
     component: lazy(() => import("../../view/components/data-display/popover")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/table",
     component: lazy(() => import("../../view/components/data-display/table")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/tabs",
     component: lazy(() => import("../../view/components/data-display/tabs")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/tag",
     component: lazy(() => import("../../view/components/data-display/tag")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/timeline",
     component: lazy(() =>
       import("../../view/components/data-display/timeline")
     ),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-display/tooltip",
     component: lazy(() =>
       import("../../view/components/data-display/tooltip")
     ),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-entry/checkbox",
     component: lazy(() => import("../../view/components/data-entry/checkbox")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-entry/datepicker",
     component: lazy(() =>
       import("../../view/components/data-entry/datepicker")
     ),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-entry/form",
     component: lazy(() => import("../../view/components/data-entry/form")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-entry/inputs",
     component: lazy(() => import("../../view/components/data-entry/inputs")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-entry/input-number",
     component: lazy(() =>
       import("../../view/components/data-entry/input-number")
     ),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-entry/radio",
     component: lazy(() =>
       import("../../view/components/data-entry/radio")
     ),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-entry/rate",
     component: lazy(() => import("../../view/components/data-entry/rate")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-entry/select",
     component: lazy(() => import("../../view/components/data-entry/select")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-entry/slider",
     component: lazy(() => import("../../view/components/data-entry/slider")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-entry/switch",
     component: lazy(() => import("../../view/components/data-entry/switch")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/data-entry/upload",
     component: lazy(() => import("../../view/components/data-entry/upload")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/feedback/alert",
     component: lazy(() => import("../../view/components/feedback/alert")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/feedback/drawer",
     component: lazy(() => import("../../view/components/feedback/drawer")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/feedback/message",
     component: lazy(() => import("../../view/components/feedback/message")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/feedback/modal",
     component: lazy(() => import("../../view/components/feedback/modal")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/feedback/notification",
     component: lazy(() =>
       import("../../view/components/feedback/notification")
     ),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/feedback/popconfirm",
     component: lazy(() => import("../../view/components/feedback/popconfirm")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/feedback/progress",
     component: lazy(() => import("../../view/components/feedback/progress")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/feedback/result",
     component: lazy(() => import("../../view/components/feedback/result")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/feedback/skeleton",
     component: lazy(() => import("../../view/components/feedback/skeleton")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/general/buttons",
     component: lazy(() => import("../../view/components/general/buttons")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/general/icons",
     component: lazy(() => import("../../view/components/general/icons")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/general/style-guide",
     component: lazy(() => import("../../view/components/general/style-guide")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/navigation/breadcrumb",
     component: lazy(() =>
       import("../../view/components/navigation/breadcrumb")
     ),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/navigation/dropdown",
     component: lazy(() => import("../../view/components/navigation/dropdown")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/navigation/menu",
     component: lazy(() => import("../../view/components/navigation/menu")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/navigation/pagination",
     component: lazy(() =>
       import("../../view/components/navigation/pagination")
     ),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/components/navigation/steps",
     component: lazy(() => import("../../view/components/navigation/steps")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
 
   // MAIN
   {
     path: "/main/dashboard/analytics",
     component: lazy(() => import("../../view/main/dashboard/analytics")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/dashboard/nft",
     component: lazy(() => import("../../view/main/dashboard/nft")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/dashboard/ecommerce",
     component: lazy(() => import("../../view/main/dashboard/ecommerce")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/widgets/cards/advance",
     component: lazy(() => import("../../view/main/widgets/cards/advance")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/widgets/cards/analytics",
     component: lazy(() => import("../../view/main/widgets/cards/analytics")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/widgets/cards/statistics",
     component: lazy(() => import("../../view/main/widgets/cards/statistics")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/widgets/selectbox",
     component: lazy(() => import("../../view/main/widgets/selectbox")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/widgets/illustration-set",
     component: lazy(() => import("../../view/main/widgets/illustration-set")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/widgets/crypto-icons",
     component: lazy(() => import("../../view/main/widgets/crypto-icons")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/widgets/user-icons",
     component: lazy(() => import("../../view/main/widgets/user-icons")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/widgets/flags",
     component: lazy(() => import("../../view/main/widgets/flags")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/widgets/charts",
     component: lazy(() => import("../../view/main/widgets/charts")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/layouts/divider",
     component: lazy(() => import("../../view/main/layouts/divider")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/layouts/grid-system",
     component: lazy(() => import("../../view/main/layouts/grid-system")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/layouts/page-layouts/boxed-layout",
     component: lazy(() => import("../../view/main/layouts/page-layouts/boxed")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/layouts/page-layouts/vertical-layout",
     component: lazy(() => import("../../view/main/layouts/page-layouts/vertical")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/main/layouts/page-layouts/horizontal-layout",
@@ -334,47 +334,47 @@ const PagesRoutes = [
   {
     path: "/apps/calendar",
     component: lazy(() => import("../../view/apps/calendar")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/apps/contact",
     component: lazy(() => import("../../view/apps/contact")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/apps/contact/contact-detail",
     component: lazy(() => import("../../view/apps/contact")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/apps/ecommerce/shop",
     component: lazy(() => import("../../view/apps/ecommerce")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/apps/ecommerce/wishlist",
     component: lazy(() => import("../../view/apps/ecommerce")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/apps/ecommerce/product-detail",
     component: lazy(() => import("../../view/apps/ecommerce")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/apps/ecommerce/checkout",
     component: lazy(() => import("../../view/apps/ecommerce")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/apps/ecommerce/address-information",
+    layout: "HorizontalLayout",
     component: lazy(() => import("../../view/apps/ecommerce")),
-    layout: "VerticalLayout",
   },
   {
     path: "/apps/ecommerce/payment",
+    layout: "HorizontalLayout",
     component: lazy(() => import("../../view/apps/ecommerce")),
-    layout: "VerticalLayout",
   },
 
   // PAGES
@@ -410,7 +410,7 @@ const PagesRoutes = [
   {
     path: "/pages/blank-page",
     component: lazy(() => import("../../view/pages/blank")),
-    layout: "VerticalLayout",
+    layout: "FullLayout",
   },
   {
     path: "/pages/error-403",
@@ -450,26 +450,26 @@ const PagesRoutes = [
   {
     path: "/pages/faq",
     component: lazy(() => import("../../view/pages/faq")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/pages/invoice",
     component: lazy(() => import("../../view/pages/invoice")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/pages/knowledge-base/knowledge-base-1",
     component: lazy(() =>
       import("../../view/pages/knowledge-base/knowledge-base-1")
     ),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/pages/knowledge-base/knowledge-base-2",
     component: lazy(() =>
       import("../../view/pages/knowledge-base/knowledge-base-2")
     ),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/pages/welcome",
@@ -494,37 +494,37 @@ const PagesRoutes = [
   {
     path: "/pages/pricing",
     component: lazy(() => import("../../view/pages/pricing")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/pages/profile/personel-information",
     component: lazy(() => import("../../view/pages/profile")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/pages/profile/notifications",
     component: lazy(() => import("../../view/pages/profile")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/pages/profile/activity",
     component: lazy(() => import("../../view/pages/profile")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/pages/profile/security",
     component: lazy(() => import("../../view/pages/profile")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/pages/profile/password-change",
     component: lazy(() => import("../../view/pages/profile")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/pages/profile/connect-with-social",
     component: lazy(() => import("../../view/pages/profile")),
-    layout: "VerticalLayout",
+    layout: "HorizontalLayout",
   },
   {
     path: "/login",

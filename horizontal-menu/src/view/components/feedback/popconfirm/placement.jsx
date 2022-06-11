@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { useSelector } from "react-redux";
 
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monoBlue } from "react-syntax-highlighter/dist/esm/styles/hljs";
@@ -27,7 +26,6 @@ export default function PlacementPopconfirm() {
   }
 
   // Rtl
-  const direction = useSelector(state => state.customise.direction)
 
   return (
     <Card className="hp-border-color-black-40">
@@ -53,7 +51,7 @@ export default function PlacementPopconfirm() {
 
         <Col span={24}>
           <div className="hp-placement">
-            <div style={direction == "rtl" ? { marginRight: 90, whiteSpace: "nowrap" } : { marginLeft: 90, whiteSpace: "nowrap" }}>
+            <div style={ { marginLeft: 90, whiteSpace: "nowrap" }}>
               <Popconfirm
                 placement="topLeft"
                 title={text}
@@ -96,7 +94,7 @@ export default function PlacementPopconfirm() {
               </Popconfirm>
             </div>
 
-            <div style={direction == "rtl" ? { width: 90, float: "right" } : { width: 90, float: "left" }}>
+            <div style={{ width: 90, float: "left" }}>
               <Popconfirm
                 placement="leftTop"
                 title={text}
@@ -139,7 +137,7 @@ export default function PlacementPopconfirm() {
               </Popconfirm>
             </div>
 
-            <div style={direction == "rtl" ? { width: 90, marginRight: 358 } : { width: 90, marginLeft: 358 }}>
+            <div style={{ width: 90, marginLeft: 358 }}>
               <Popconfirm
                 placement="rightTop"
                 title={text}
@@ -182,7 +180,7 @@ export default function PlacementPopconfirm() {
               </Popconfirm>
             </div>
 
-            <div style={direction == "rtl" ? { marginRight: 90, clear: "both", whiteSpace: "nowrap" } : { marginLeft: 90, clear: "both", whiteSpace: "nowrap" }}>
+            <div style={ { marginLeft: 90, clear: "both", whiteSpace: "nowrap" }}>
               <Popconfirm
                 placement="bottomLeft"
                 title={text}

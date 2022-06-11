@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import { useSelector } from "react-redux";
 
 import { Col, Avatar, Badge, Menu } from "antd";
 import {
@@ -44,7 +43,6 @@ export default function MenuProfile(props) {
   const splitLocation = pathname.split("/");
 
   // Redux
-  const customise = useSelector(state => state.customise)
 
   return (
     <Col flex="240px" className="hp-profile-menu hp-py-24">
@@ -65,7 +63,7 @@ export default function MenuProfile(props) {
         <Menu
           mode="inline"
           className="hp-w-100 hp-profile-menu-body"
-          theme={customise.theme == "light" ? "light" : "dark"}
+          theme={"light"}
         >
           <Menu.Item
             key="1"

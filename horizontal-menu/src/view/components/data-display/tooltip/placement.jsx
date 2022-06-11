@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { useSelector } from "react-redux";
 
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monoBlue } from "react-syntax-highlighter/dist/esm/styles/hljs";
@@ -20,7 +19,6 @@ export default function TooltipPlacement() {
   }
 
   // Rtl
-  const direction = useSelector(state => state.customise.direction)
 
   return (
     <Card className="hp-border-color-black-40">
@@ -42,7 +40,7 @@ export default function TooltipPlacement() {
 
         <Col span={24}>
           <div className="hp-placement">
-            <div style={direction == "rtl" ? { marginRight: 90, whiteSpace: "nowrap" } : { marginLeft: 90, whiteSpace: "nowrap" }}>
+            <div style={ { marginLeft: 90, whiteSpace: "nowrap" }}>
               <Tooltip
                 placement="topLeft"
                 title={text}
@@ -72,7 +70,7 @@ export default function TooltipPlacement() {
                 <Button type="primary">TR</Button>
               </Tooltip>
             </div>
-            <div style={direction == "rtl" ? { width: 90, float: "right" } : { width: 90, float: "left" }}>
+            <div style={ { width: 90, float: "left" }}>
               <Tooltip
                 placement="leftTop"
                 title={text}
@@ -102,7 +100,7 @@ export default function TooltipPlacement() {
                 <Button type="primary">LB</Button>
               </Tooltip>
             </div>
-            <div style={direction == "rtl" ? { width: 90, marginRight: 358 } : { width: 90, marginLeft: 358 }}>
+            <div style={{ width: 90, marginLeft: 358 }}>
               <Tooltip
                 placement="rightTop"
                 title={text}
@@ -132,7 +130,7 @@ export default function TooltipPlacement() {
                 <Button type="primary">RB</Button>
               </Tooltip>
             </div>
-            <div style={direction == "rtl" ? { marginRight: 90, clear: "both", whiteSpace: "nowrap" } : { marginLeft: 90, clear: "both", whiteSpace: "nowrap" }}>
+            <div style={ { marginLeft: 90, clear: "both", whiteSpace: "nowrap" }}>
               <Tooltip
                 placement="bottomLeft"
                 title={text}
